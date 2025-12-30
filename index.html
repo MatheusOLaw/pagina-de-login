@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Login</title>
+
+    <style> 
+        body {
+            margin: 0;
+            height: 100vh;
+
+            transition: background-color 0.6s ease;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #0b3477;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;;
+            width: 300px;
+
+            text-align: center;
+        }
+        
+        .forms {
+            position: relative;
+            height: 200px;
+            margin-top: 20px;
+
+        }
+
+        .form  {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+
+        .form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 10px;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+
+        body.login .login-form {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        body.login .register-form {
+            opacity: 0;
+            transform: translateX(30px);
+            pointer-events: none;
+        } 
+
+
+        body.register .register-form {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        body.register .login-form {
+            opacity: 0;
+             transform: translateX(-30px);
+               pointer-events: none;
+        }
+
+
+
+
+        body.login {
+            background-color: #0b3477;
+        }
+
+        body.register {
+            background-color: #6b16bb;
+        }
+    </style>
+
+</head>
+  <body class="login">
+
+        <div class="container">
+            <h2>Login</h2>
+            
+            <div class="forms">
+
+                <form class="form login-form">
+                    <input type="text" placeholder="Usuário">
+                    <input type="password" placeholder="Senha">
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <form class="form register-form">
+                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Usuário">
+                    <input type="password" placeholder="Senha">
+                    <button type="submit">Registrar</button>
+                </form>
+                
+            </div>    
+
+
+            <div class="buttons">
+            <button class="login-Btn">Login</button>
+            <button class="register-Btn">Registrar</button>
+            </div>
+        </div>    
+
+        <script>    
+            const loginBtn = document.querySelector(".login-Btn");
+            const registerBtn = document.querySelector(".register-Btn");
+            const title= document.querySelector('h2');
+
+
+                loginBtn.onclick = () => {
+                    document.body.className = 'login';
+                    title.innerText = 'Login';
+                }
+
+                registerBtn.onclick = () => {
+                    document.body.className = 'register';
+                    title.innerText = 'Registrar';
+                }
+
+        </script>
+
+  </body>
+
+  </html>
